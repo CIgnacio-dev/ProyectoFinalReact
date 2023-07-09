@@ -1,0 +1,32 @@
+.card img{
+    width: 100%;
+    height: 150px;
+}
+.card-deck {
+    display: flex !important;
+    flex-wrap: wrap !important;  
+    
+}
+.card-item {
+    display: flex !important;
+    flex-wrap: wrap !important;  
+    
+}
+.card {
+    width: 250px;
+    
+    margin: auto;
+}
+.card-precio {
+    border: 1px solid red;
+    text-align: center;
+}
+
+
+
+
+/* Navbar */
+
+#navbar-nav{
+    justify-content: end !important;
+}
