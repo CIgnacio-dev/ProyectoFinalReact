@@ -41,15 +41,16 @@ function Home() {
           </Card>
         </Carousel.Item>
       </Carousel>
-
+      <div className='detalles-alojamientos'>
       <h1>¿En qué se diferencia cada alojamiento?</h1>
       <Row>
         <Col>
           <Card>
+          <Card.Img variant="top" src="https://parisjetaime.com/data/layout_image/es-ES/Hotel-enseigne-neon-630x405-C-Thinkstock.jpg" alt="Imagen 1" />
             <Card.Body>
-              <Card.Title>Hotel 1</Card.Title>
+              <Card.Title>Hotel</Card.Title>
               <Card.Text>
-                Descripción del hotel 1
+                Descripción del hotel
               </Card.Text>
               <Button as={Link} to="/detalles-hotel">Ver detalles</Button>
             </Card.Body>
@@ -58,10 +59,11 @@ function Home() {
 
         <Col>
           <Card>
+          <Card.Img variant="top" src="https://media-cdn.tripadvisor.com/media/photo-s/13/c2/87/2c/el-hostal-bed-and-breakfast.jpg" alt="Imagen 1" />
             <Card.Body>
-              <Card.Title>Hostal 1</Card.Title>
+              <Card.Title>Hostal</Card.Title>
               <Card.Text>
-                Descripción del hostal 1
+                Descripción del hostal
               </Card.Text>
               <Button as={Link} to="/detalles-hostal">Ver detalles</Button>
             </Card.Body>
@@ -70,16 +72,18 @@ function Home() {
 
         <Col>
           <Card>
+          <Card.Img variant="top" src="https://images.adsttc.com/media/images/56fd/b861/e58e/ce2e/3200/000a/newsletter/sergio_rapanui_morerava_518.jpg?1459468366" alt="Imagen 1" />
             <Card.Body>
-              <Card.Title>Cabaña 1</Card.Title>
+              <Card.Title>Cabaña</Card.Title>
               <Card.Text>
-                Descripción de la cabaña 1
+                Descripción de la cabaña
               </Card.Text>
               <Button as={Link} to="/detalles-cabana">Ver detalles</Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+      </div>
     </div>
   );
 }
