@@ -1,3 +1,9 @@
+/* Navbar*/
+
+.navbar-brand, .nav-link{
+    color: #fff !important;
+}
+
 /* Carrusel Inicio */
 
 .carousel-control-prev, .carousel-control-next {
@@ -10,7 +16,7 @@
 .card {
     width: 400px !important;
     margin: auto !important;
-    height: 350px !important;
+    height: 400px !important;
 }
 .card img{
     height: 250px;
@@ -19,3 +25,22 @@
 .textos-home h1{
     text-align: center;
 }
+
+/* Detalles Hotel */
+
+.accordion{
+    width: 1000px;
+    margin: auto;
+}
+.row{
+    width: 100%;
+}
+
+/*Footer  */
+
+.footer {
+    background-color: midnightblue;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
