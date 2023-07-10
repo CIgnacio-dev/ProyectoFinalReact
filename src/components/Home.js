@@ -2,7 +2,10 @@ import React from 'react';
 import { Carousel, Card, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Home() {
+function Home({ props}) {
+    const agregarAlCarrito = (reserva) => {
+        props.agregarAlCarrito(reserva);
+      };
   return (
     <div className='textos-home'>
       <h1>Destinos Populares</h1>
@@ -11,7 +14,7 @@ function Home() {
           <Card>
             <Card.Img variant="top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/16/a6/88/con-la-primavera-in-giappone.jpg?w=700&h=-1&s=1" alt="Imagen 1" />
             <Card.Body>
-              <Card.Title>Título de la Card 1</Card.Title>
+              <Card.Title>Japón</Card.Title>
               <Card.Text>
                 Contenido de la Card 1
               </Card.Text>
@@ -22,7 +25,7 @@ function Home() {
           <Card>
             <Card.Img variant="top" src="https://humanidades.com/wp-content/uploads/2018/09/francia-3-800x414.jpg" alt="Imagen 2" />
             <Card.Body>
-              <Card.Title>Título de la Card 2</Card.Title>
+              <Card.Title>Francia</Card.Title>
               <Card.Text>
                 Contenido de la Card 2
               </Card.Text>
@@ -33,7 +36,7 @@ function Home() {
           <Card>
             <Card.Img variant="top" src="https://humanidades.com/wp-content/uploads/2017/04/brasil-1-e1566159463813-800x400.jpg" alt="Imagen 3" />
             <Card.Body>
-              <Card.Title>Título de la Card 3</Card.Title>
+              <Card.Title>Brazil</Card.Title>
               <Card.Text>
                 Contenido de la Card 3
               </Card.Text>
@@ -50,7 +53,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Hotel</Card.Title>
               <Card.Text>
-                Descripción del hotel
+                La mayor cantidad de opciones en calidad y precio
               </Card.Text>
               <Button as={Link} to="/detalles-hotel">Ver detalles</Button>
             </Card.Body>
@@ -63,7 +66,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Hostal</Card.Title>
               <Card.Text>
-                Descripción del hostal
+                La mejor opción para quienes quieren ahorrar
               </Card.Text>
               <Button as={Link} to="/detalles-hostal">Ver detalles</Button>
             </Card.Body>
@@ -76,7 +79,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Cabaña</Card.Title>
               <Card.Text>
-                Descripción de la cabaña
+                La mejor opción para los que quieren tranquilidad
               </Card.Text>
               <Button as={Link} to="/detalles-cabana">Ver detalles</Button>
             </Card.Body>
