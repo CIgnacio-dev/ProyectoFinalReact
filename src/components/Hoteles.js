@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-function Hoteles() {
+function Hoteles({ agregarAlCarrito, agregarNoches }) {
+   const agregarReserva = () => {
+  const reserva = {
+    tipo: 'Hoteles',
+    // otras propiedades de la reserva
+  };
+  const cantidadPersonas = 4; // Reemplaza esto con la cantidad seleccionada de personas
+  agregarAlCarrito(reserva, cantidadPersonas);
+};
   const [noches, setNoches] = useState(1);
   const [personas, setPersonas] = useState(1);
   const precioPorNoche = 100;
@@ -64,6 +72,8 @@ function Hoteles() {
               min={1}
               max={limitePersonas}
             />
+            <button onClick={agregarReserva}>Agregar al carrito</button>
+      
           </Card.Body>
         </Card>
 

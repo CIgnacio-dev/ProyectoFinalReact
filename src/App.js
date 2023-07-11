@@ -1,42 +1,44 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import Contacto from './components/Contacto';
-import Footer from './components/Footer';
-import Hoteles from './components/Hoteles';
-import Hostales from './components/Hostales';
-import Cabanas from './components/Cabanas';
 import DetallesHotel from './components/Detalles/DetallesHotel';
 import DetallesHostal from './components/Detalles/DetallesHostal';
 import DetallesCabana from './components/Detalles/DetallesCabana';
+import Hoteles  from './components/Hoteles';
+import Hostales  from './components/Hostales';
+import Cabanas  from './components/Cabanas';
+import Contacto from './components/Contacto';
+import NavbarComponent from './components/Navbar';
+import Footer from './components/Footer';
 import Carrito from './components/Carrito';
-import './style.css';
+import Shop from './components/Shop';
+import '../src/style.css'
 
 function App() {
   const [carrito, setCarrito] = useState([]);
 
-  const agregarAlCarrito = (reserva) => {
-    setCarrito([...carrito, reserva]);
+  const agregarAlCarrito = (reserva, cantidadPersonas) => {
+    const reservaConPersonas = { ...reserva, cantidadPersonas };
+    setCarrito([...carrito, reservaConPersonas]);
   };
+
   return (
     <Router>
-      
-      <Navbar carrito={carrito} />
+      <NavbarComponent carritoCantidad={carrito.length} />
+
       <Routes>
-      
         <Route path="/" element={<Home />} />
-        <Route path="/hoteles" element={<Hoteles categoria="Hoteles" />} />
-        <Route path="/hostales" element={<Hostales categoria="Hostales" />} />
-        <Route path="/cabanas" element={<Cabanas categoria="Cabanas" />} />
-        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/hoteles" element={<Hoteles agregarAlCarrito={agregarAlCarrito} />} />
+        <Route path="/hostales" element={<Hostales agregarAlCarrito={agregarAlCarrito} />} />
+        <Route path="/cabañas" element={<Cabanas agregarAlCarrito={agregarAlCarrito} />} />
         <Route path="/detalles-hotel" element={<DetallesHotel />} />
         <Route path="/detalles-hostal" element={<DetallesHostal />} />
         <Route path="/detalles-cabana" element={<DetallesCabana />} />
-      
-        
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/carrito" element={<Carrito carrito={carrito} />} />
+        <Route path="/shop" element={<Shop agregarAlCarrito={agregarAlCarrito} />} />
       </Routes>
+
       <Footer />
     </Router>
   );

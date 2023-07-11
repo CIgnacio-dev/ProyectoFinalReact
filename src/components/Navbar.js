@@ -3,8 +3,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 
-function NavbarComponent({ carrito }) {
-  const carritoCantidad = carrito.length;
+function NavbarComponent({ carritoCantidad }) {
   return (
     <Navbar className='navbar-bq' bg="dark" expand="lg">
       <Navbar.Brand as={Link} to="/">Boqueen</Navbar.Brand>
@@ -20,8 +19,8 @@ function NavbarComponent({ carrito }) {
           <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
         </Nav>
         <Nav>
-        <Nav.Link as={Link} to="/carrito">
-            <FaShoppingCart /> {carritoCantidad > 0 && <span className="carrito-cantidad">{carritoCantidad}</span>}
+          <Nav.Link as={Link} to="/carrito">
+          <FaShoppingCart /> {carritoCantidad > 0 && <span className="carrito-cantidad">{carritoCantidad}</span>}
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
