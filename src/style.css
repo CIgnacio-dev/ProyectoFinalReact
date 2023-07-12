@@ -15,7 +15,7 @@
 }
 .card {
     width: 400px !important;
-    margin: auto !important;
+    margin: 20px auto !important;
     height: 400px !important;
 }
 .card img{
@@ -24,6 +24,15 @@
 
 .textos-home h1{
     text-align: center;
+}
+
+.buttons-agregar{
+    display: flex;
+    justify-content: space-around;
+}
+.agregar-carrito{
+    display: flex !important;
+    margin: auto !important;
 }
 
 /* Detalles Hotel */
@@ -36,6 +45,17 @@
     width: 100%;
 }
 
+/* Hotel */
+
+.card-hotel label{
+    margin: 15px 0;
+
+}
+.card-hotel {
+    height: 500px !important
+}
+
+
 /*Footer  */
 
 .footer {
@@ -44,3 +64,10 @@
     text-align: center;
     color: #fff;
   }
+
+/* Carrito */
+
+.carrito{
+    margin: auto;
+    text-align: center;
+}

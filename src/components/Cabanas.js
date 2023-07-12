@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-function Hoteles() {
+function Cabanas({ agregarAlCarrito, agregarNoches }) {
+    const [cantidadPersonas, setCantidadPersonas] = useState(1);
+    const agregarReserva = () => {
+        const reserva = {
+          tipo: 'Cabañas',
+          cantidadPersonas: personas,
+          precioTotal: precioTotal, // Asegúrate de que estás utilizando la variable correcta aquí
+          // otras propiedades de la reserva
+        };
+        agregarAlCarrito(reserva);
+      };
+      
+    
   const [noches, setNoches] = useState(1);
   const [personas, setPersonas] = useState(1);
   const precioPorNoche = 100;
@@ -31,41 +43,53 @@ function Hoteles() {
 
   return (
     <div>
-      <h2>Hoteles</h2>
+      <h2>Cabañas</h2>
 
-      <div className="cards-container">
+      <div className="cards-container card-hotel">
         <Card>
           <Card.Body>
-            <Card.Title>Hotel 1</Card.Title>
+            <Card.Title>Cabaña  <a style={{textAlign: 'right'}} href='#'> Ver Fotos</a></Card.Title>
             <Card.Text>
-              Precio por noche: $150 USD
+              Precio por noche: $100 USD
             </Card.Text>
             <Card.Text>
               Noches: {noches}
             </Card.Text>
             <Card.Text>
-              Grupo: {personas}
+              Personas: {personas}
             </Card.Text>
             <Card.Text>
               Precio base: ${precioBase} USD
             </Card.Text>
-            
+            <Card.Text>
+              Precio por personas: ${precioPorPersonas} USD
+            </Card.Text>
             <Card.Text>
               Precio total: ${precioTotal} USD
             </Card.Text>
+            <div className='buttons-agregar'>
             <Button onClick={agregarNoche}>Agregar noche</Button>
             <Button onClick={quitarNoche}>Quitar noche</Button>
-           <p>Cabañas con capacidad para hasta 6 personas</p>
+            </div>
+            <label>Ingrese cantidad de personas:</label>
+            <input
+              type="number"
+              value={personas}
+              onChange={cambiarPersonas}
+              min={1}
+              max={limitePersonas}
+            />
+            <Button className='agregar-carrito' onClick={agregarReserva}>Agregar al carrito</Button>
+      
           </Card.Body>
         </Card>
 
         
-        
-        {/* Repite el código de la card para los otros hoteles */}
+       
         
       </div>
     </div>
   );
 }
 
-export default Hoteles;
+export default Cabanas;

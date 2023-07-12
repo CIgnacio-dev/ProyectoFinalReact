@@ -1,23 +1,27 @@
 import React from 'react';
 
-function Carrito({ carrito }) {
+function Carrito({ carrito, calcularPrecioTotal }) {
   return (
-    <div>
+    <div className='carrito'>
       <h2>Carrito de Reservas</h2>
 
-      {carrito && carrito.length === 0 ? (
+      {carrito.length === 0 ? (
         <p>No hay elementos en el carrito.</p>
       ) : (
-        <ul>
-          {carrito &&
-            carrito.map((reserva, index) => (
+        <div>
+          <ul>
+          <h4>Estos son los tipo de alojamiento y el precio total que llevas hasta el momento</h4>
+            {carrito.map((reserva, index) => (
               <li key={index}>
+                
                 <p>Tipo: {reserva.tipo}</p>
-                <p>Cantidad de Personas: {reserva.cantidadPersonas}</p>
-                {/* otras propiedades de la reserva */}
+         
               </li>
             ))}
-        </ul>
+          </ul>
+          
+          <p>Precio Total: {calcularPrecioTotal()} USD</p>
+        </div>
       )}
     </div>
   );

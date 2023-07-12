@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-function Hoteles() {
+function Hostales({ agregarAlCarrito, agregarNoches }) {
+    const [cantidadPersonas, setCantidadPersonas] = useState(1);
+    const agregarReserva = () => {
+        const reserva = {
+          tipo: 'Hostales',
+          cantidadPersonas: personas,
+          precioTotal: precioTotal, // Asegúrate de que estás utilizando la variable correcta aquí
+          // otras propiedades de la reserva
+        };
+        agregarAlCarrito(reserva);
+      };
+      
+    
   const [noches, setNoches] = useState(1);
   const [personas, setPersonas] = useState(1);
   const precioPorNoche = 100;
@@ -31,14 +43,14 @@ function Hoteles() {
 
   return (
     <div>
-      <h2>Hoteles</h2>
+      <h2>Hostales</h2>
 
-      <div className="cards-container">
+      <div className="cards-container card-hotel">
         <Card>
           <Card.Body>
-            <Card.Title>Hotel 1</Card.Title>
+            <Card.Title>Hostal</Card.Title>
             <Card.Text>
-              Precio por noche: $60 USD
+              Precio por noche: $100 USD
             </Card.Text>
             <Card.Text>
               Noches: {noches}
@@ -55,8 +67,11 @@ function Hoteles() {
             <Card.Text>
               Precio total: ${precioTotal} USD
             </Card.Text>
+            <div className='buttons-agregar'>
             <Button onClick={agregarNoche}>Agregar noche</Button>
             <Button onClick={quitarNoche}>Quitar noche</Button>
+            </div>
+            <label>Ingrese cantidad de personas:</label>
             <input
               type="number"
               value={personas}
@@ -64,16 +79,17 @@ function Hoteles() {
               min={1}
               max={limitePersonas}
             />
+            <Button className='agregar-carrito' onClick={agregarReserva}>Agregar al carrito</Button>
+      
           </Card.Body>
         </Card>
 
         
-        
-        {/* Repite el código de la card para los otros hoteles */}
+       
         
       </div>
     </div>
   );
 }
 
-export default Hoteles;
+export default Hostales;

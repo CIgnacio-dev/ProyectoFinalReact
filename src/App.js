@@ -21,7 +21,13 @@ function App() {
     const reservaConPersonas = { ...reserva, cantidadPersonas };
     setCarrito([...carrito, reservaConPersonas]);
   };
-
+  const calcularPrecioTotal = () => {
+    let total = 0;
+    carrito.forEach((reserva) => {
+      total += reserva.precioTotal || 0; 
+    });
+    return total;
+  };
   return (
     <Router>
       <NavbarComponent carritoCantidad={carrito.length} />
@@ -30,12 +36,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/hoteles" element={<Hoteles agregarAlCarrito={agregarAlCarrito} />} />
         <Route path="/hostales" element={<Hostales agregarAlCarrito={agregarAlCarrito} />} />
-        <Route path="/cabañas" element={<Cabanas agregarAlCarrito={agregarAlCarrito} />} />
+        <Route path="/cabanas" element={<Cabanas agregarAlCarrito={agregarAlCarrito} />} />
         <Route path="/detalles-hotel" element={<DetallesHotel />} />
         <Route path="/detalles-hostal" element={<DetallesHostal />} />
         <Route path="/detalles-cabana" element={<DetallesCabana />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path="/carrito" element={<Carrito carrito={carrito} />} />
+        <Route path="/carrito" element={<Carrito carrito={carrito} calcularPrecioTotal={calcularPrecioTotal} />} />
         <Route path="/shop" element={<Shop agregarAlCarrito={agregarAlCarrito} />} />
       </Routes>
 

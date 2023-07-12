@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 function Hoteles({ agregarAlCarrito, agregarNoches }) {
-   const agregarReserva = () => {
-  const reserva = {
-    tipo: 'Hoteles',
-    // otras propiedades de la reserva
-  };
-  const cantidadPersonas = 4; // Reemplaza esto con la cantidad seleccionada de personas
-  agregarAlCarrito(reserva, cantidadPersonas);
-};
+    const [cantidadPersonas, setCantidadPersonas] = useState(1);
+    const agregarReserva = () => {
+        const reserva = {
+          tipo: 'Hoteles',
+          cantidadPersonas: personas,
+          precioTotal: precioTotal, // Asegúrate de que estás utilizando la variable correcta aquí
+          // otras propiedades de la reserva
+        };
+        agregarAlCarrito(reserva);
+      };
+      
+    
   const [noches, setNoches] = useState(1);
   const [personas, setPersonas] = useState(1);
   const precioPorNoche = 100;
@@ -41,7 +45,7 @@ function Hoteles({ agregarAlCarrito, agregarNoches }) {
     <div>
       <h2>Hoteles</h2>
 
-      <div className="cards-container">
+      <div className="cards-container card-hotel">
         <Card>
           <Card.Body>
             <Card.Title>Hotel 1</Card.Title>
@@ -63,8 +67,11 @@ function Hoteles({ agregarAlCarrito, agregarNoches }) {
             <Card.Text>
               Precio total: ${precioTotal} USD
             </Card.Text>
+            <div className='buttons-agregar'>
             <Button onClick={agregarNoche}>Agregar noche</Button>
             <Button onClick={quitarNoche}>Quitar noche</Button>
+            </div>
+            <label>Ingrese cantidad de personas:</label>
             <input
               type="number"
               value={personas}
@@ -72,14 +79,13 @@ function Hoteles({ agregarAlCarrito, agregarNoches }) {
               min={1}
               max={limitePersonas}
             />
-            <button onClick={agregarReserva}>Agregar al carrito</button>
+            <Button className='agregar-carrito' onClick={agregarReserva}>Agregar al carrito</Button>
       
           </Card.Body>
         </Card>
 
         
-        
-        {/* Repite el código de la card para los otros hoteles */}
+       
         
       </div>
     </div>
