@@ -3,6 +3,13 @@
 .navbar-brand, .nav-link{
     color: #fff !important;
 }
+/* Accordion */
+
+.accordion{
+    border: 3px solid rgb(123, 62, 194);
+    margin: 50px auto !important;
+    padding: 1px;
+}
 
 /* Carrusel Inicio */
 
